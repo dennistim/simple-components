@@ -158,5 +158,15 @@ module.exports = {
     "react/prefer-stateless-function": "off",
     "react/prop-types": "off",
     "react/static-property-placement": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ]
 };
