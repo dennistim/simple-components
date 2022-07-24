@@ -1,0 +1,122 @@
+@mixin main-blue-content {
+  color: var(--main-blue);
+
+  &> .btn-content > .btn-text > .svg-icon-wrapper > span > svg > * {
+    stroke: var(--main-blue);
+  }
+}
+
+@mixin main-text-content {
+  color: var(--text);
+
+  .btn-content > .btn-text > .svg-icon-wrapper > span > svg > * {
+    stroke: var(--text);
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &> .btn-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &> .btn-content > .btn-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &> .btn-content > .btn-loader {
+    position: absolute;
+  }
+
+  &> .btn-content.loading > .btn-text {
+    visibility: hidden;
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+.btn.large {
+  padding: 18px 60px;
+}
+
+.btn.mini {
+  padding: 12px 32px;
+}
+
+.btn.small {
+  padding: 9px 24px;
+}
+
+.btn.primary {
+  background: var(--main-blue);
+  color: var(--text);
+
+  &:hover {
+    background: var(--main-blue-light);
+  }
+
+  &:active {
+    background: var(--main-blue-dark);
+  }
+
+  &:disabled {
+    background: var(--grey-light);
+  }
+}
+
+.btn.secondary {
+  @include main-blue-content;
+  background: var(--secondary-blue);
+
+  &:hover {
+    @include main-text-content;
+    background: var(--main-blue);
+  }
+
+  &:active {
+    @include main-blue-content;
+    background: var(--secondary-blue-dark);
+
+  }
+
+  &:disabled {
+    @include main-blue-content;
+    background: var(--secondary-blue);
+    opacity: 0.4;
+  }
+}
+
+.btn.line {
+  @include main-blue-content;
+  background: var(--text);
+  border: 1px solid var(--main-blue);
+
+  &:hover {
+    @include main-text-content;
+    background: var(--main-blue);
+  }
+
+  &:active {
+    @include main-blue-content;
+    background: var(--secondary-blue);
+  }
+
+  &:disabled {
+    @include main-blue-content;
+    background: var(--text);
+    border: 1px solid var(--main-blue);
+    opacity: 0.4;
+  }
+}
+
