@@ -1,5 +1,4 @@
 const path = require('path');
-const addRewireScssLoader = require("react-app-rewire-scss-loaders");
 
 module.exports = function override(config) {
   config.resolve = {
