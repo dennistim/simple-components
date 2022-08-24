@@ -1,0 +1,61 @@
+@use "@styles/mixins.scss";
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  margin: 0 1em 0 0;
+  cursor: pointer;
+
+  &:checked {
+    background-image: url("../../../public/assets/icons/check-mark.svg");
+    background-color: var(--main-blue);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+
+  &.toggle {
+    @include mixins.toggle;
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+
+  &:not(.disabled, .readonly):hover {
+    cursor: pointer;
+
+    &>.checkbox-label:not(.disabled) {
+      color: var(--main-blue-light);
+    }
+
+    &>input[type="checkbox"]:not(:checked, :disabled, .readonly, .toggle) {
+      border: 2px solid var(--main-blue-light);
+    }
+  }
+}
+
+.checkbox_label {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-dark);
+
+  &.hidden.checked {
+    color: var(--main-blue);
+  }
+
+  &:not(.disabled, .readonly):hover {
+    cursor: pointer;
+  }
+}
+
+.disabled {
+  @include mixins.disabled
+}

@@ -1,27 +1,30 @@
 import React from "react";
 import { ReactSVG } from "react-svg";
+import classnames from "classnames";
 import { IconSize, SvgIconProp } from "./SvgIcon.types";
 
-import "./SvgIcon.styles.scss";
+import styles from "./SvgIcon.module.scss";
+import Colors from "@styles/colors.scss";
 
 const SvgIcon = ({
   icon,
   className,
   size = IconSize.Large,
-  color = "var(--text)",
+  color = Colors.textColor,
+  pointer,
   fill = "none",
   onClick,
 }: SvgIconProp) => {
-  const propClassName = className ? ` ${className}` : "";
+  const cursorPointer = pointer ? "pointer" : "initial";
 
   return (
     <ReactSVG
+      style={{cursor: cursorPointer}}
       src={`./assets/icons/${icon}.svg`}
       onClick={onClick}
       wrapper="span"
-      className="svg-icon-wrapper"
+      className={classnames(styles.svg_icon_wrapper, className)}
       beforeInjection={(svg) => {
-        svg.classList.add("svg-icon" + propClassName);
         svg.setAttribute("fill", fill);
         svg.setAttribute("width", size);
         svg.setAttribute("height", size);

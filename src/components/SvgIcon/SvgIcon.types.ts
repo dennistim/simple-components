@@ -44,5 +44,6 @@ export type SvgIconProp = {
   fill?: string;
   color?: string;
   className?: string;
+  pointer?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 };

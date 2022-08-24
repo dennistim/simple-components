@@ -1,0 +1,48 @@
+.spinner {
+  position: relative;
+  background: inherit;
+  border-radius: 50%;
+
+  &.large {
+    width: 56px;
+    height: 56px;
+  }
+
+  &.mini {
+    width: 28px;
+    height: 28px;
+  }
+
+  &.small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-width: 0.3em;
+    border-style: solid;
+    border-radius: 50%;
+  }
+
+  &:before {
+    border-color: inherit;
+    opacity: 0.1;
+  }
+
+  &:after {
+    border-color: var(--text) var(--text) transparent transparent;
+    animation: spin .5s infinite linear;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

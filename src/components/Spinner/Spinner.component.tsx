@@ -1,15 +1,15 @@
 import React from "react";
 import classNames from "classnames";
-import { SpinnerProp, SpinnerSize } from "./Spinner.types";
+import { SpinnerProp, SpinnerSize, spinnerSizeClass } from "./Spinner.types";
 
-import "./Spinner.styles.scss";
+import styles from "./Spinner.module.scss";
 
 const Spinner = ({
   size = SpinnerSize.Large,
   className,
 }: SpinnerProp) => {
   return (
-    <div className={classNames("spinner", size, className)} />
+    <div className={classNames(styles.spinner, spinnerSizeClass[size], className)} />
   );
 };
 

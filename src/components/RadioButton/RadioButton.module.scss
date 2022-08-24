@@ -1,0 +1,55 @@
+@use "@styles/mixins.scss" as mixins;
+
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--gray);
+  border-radius: 50%;
+  margin: 0 1em 0 0;
+  position: relative;
+  cursor: pointer;
+
+  &.toggle {
+    @include mixins.toggle;
+  }
+
+  &:checked:not(.toggle) {
+    border:  1px solid var(--main-blue);
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--main-blue);
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+  }
+
+  &:not(:disabled, .toggle):hover {
+    border: 2px solid var(--main-blue-light);
+
+    &:after {
+      top: 2px;
+      left: 2px;
+    }
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+.radioButton_label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-dark)
+}
+
+.disabled {
+  @include mixins.disabled;
+}

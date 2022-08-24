@@ -1,10 +1,11 @@
 import React from "react";
 import classNames from "classnames";
-import { ButtonProp, ButtonSize, ButtonType } from "./Button.types";
+import { ButtonProp, ButtonSize, buttonSizeClasses, ButtonType, buttonTypeClasses } from "./Button.types";
 import SvgIcon from "@components/SvgIcon";
-
-import "./Button.styles.scss";
+import Text from "@components/Text";
 import Spinner, { SpinnerSize } from "@components/Spinner";
+
+import styles from "./Button.module.scss";
 
 const Button = ({
   size = ButtonSize.Small,
@@ -19,16 +20,16 @@ const Button = ({
   return (
     <button
       disabled={disabled}
-      className={classNames("btn", type, size, className)}
+      className={classNames(styles.btn, buttonTypeClasses[type], buttonSizeClasses[size], className)}
       onClick={onClick}
     >
-      <span className={classNames("btn-content", { loading })}>
-        <span className="btn-text">
-          {icon && <SvgIcon icon={icon} />}
+      <span className={classNames(styles.btn_content, { [styles.loading]: loading })}>
+        <span className={styles.btn_text}>
+          {icon && <SvgIcon icon={icon} pointer className={styles.btn_svg}/>}
           {children}
         </span>
         {loading &&
-        <span className="btn-loader">
+        <span className={styles.btn_loader}>
           <Spinner size={SpinnerSize.Mini} />
         </span>}
       </span>

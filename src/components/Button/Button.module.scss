@@ -1,0 +1,128 @@
+@mixin main-blue-content {
+  color: var(--main-blue);
+
+  &> .btn_content > .btn_text > .btn_svg > span > svg > * {
+    stroke: var(--main-blue);
+  }
+}
+
+@mixin main-text-content {
+  color: var(--text);
+
+  .btn_content > .btn_text > .btn_svg > span > svg > * {
+    stroke: var(--text);
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &>span {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  &> .btn_content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &> .btn_content > .btn_text {
+    font-size: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &> .btn_content > .btn_loader {
+    position: absolute;
+  }
+
+  &> .btn_content.loading > .btn_text {
+    visibility: hidden;
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+
+  &.large {
+    padding: 18px 60px;
+  }
+
+  &.mini {
+    padding: 12px 32px;
+  }
+
+  &.small {
+    padding: 9px 24px;
+  }
+
+  &.primary {
+    background: var(--main-blue);
+    color: var(--text);
+  
+    &:hover {
+      background: var(--main-blue-light);
+    }
+  
+    &:active {
+      background: var(--main-blue-dark);
+    }
+  
+    &:disabled {
+      background: var(--gray-light);
+    }
+  }
+
+  &.secondary {
+    @include main-blue-content;
+    background: var(--secondary-blue);
+  
+    &:hover {
+      @include main-text-content;
+      background: var(--main-blue);
+    }
+  
+    &:active {
+      @include main-blue-content;
+      background: var(--secondary-blue-dark);
+  
+    }
+  
+    &:disabled {
+      @include main-blue-content;
+      background: var(--secondary-blue);
+      opacity: 0.4;
+    }
+  }
+
+  &.line {
+    @include main-blue-content;
+    background: var(--text);
+    border: 1px solid var(--main-blue);
+  
+    &:hover {
+      @include main-text-content;
+      background: var(--main-blue);
+    }
+  
+    &:active {
+      @include main-blue-content;
+      background: var(--secondary-blue);
+    }
+  
+    &:disabled {
+      @include main-blue-content;
+      background: var(--text);
+      border: 1px solid var(--main-blue);
+      opacity: 0.4;
+    }
+  }
+}

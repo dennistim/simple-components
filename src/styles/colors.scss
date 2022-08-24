@@ -1,8 +1,25 @@
 :root {
-  --page-bg: #ffffff;
+  --main-bg: #F9F9FA;
 
   --text: #ffffff;
 
+  --black: #10203B;
+
+  --block: #263650;
+
+  --red: #D82045;
+  --red-1:#EB5757;
+
+  --green: #03D087;
+  --green-1: #219653;
+  --green-3: #6FCF97;
+
+  --orange: #F2994A;
+  --orange-1: #FF8437;
+
+  --blue-1: #2F80ED;
+  --blue-2: #2D9CDB;
+  --blue-3: #56CCF2;
   --main-blue: #10A8C9;
   --main-blue-light: #11B7DB;
   --main-blue-dark: #0E97B5;
@@ -10,5 +27,24 @@
   --secondary-blue: #E8F7FA;
   --secondary-blue-dark: #10A8C933;
 
-  --grey-light: #D7DBE2;
+  --gray: #9CA4B3;
+  --gray-light: #D7DBE2;
+  --gray-dark: #515B6C;
+}
+
+:export {
+  textColor:  var(--text);
+  black:      var(--black);
+  gray:       var(--gray);
+  grayLight:  var(--gray-light);
+  grayDark:   var(--gray-dark);
+  red:        var(--red);
+  red1:       var(--red-1);
+  green1:     var(--green-1);
+  green3:     var(--green-3);
+  orange:     var(--orange);
+  orange1:    var(--orange-1);
+  blue1:      var(--blue-1);
+  blue2:      var(--blue-2);
+  blue3:      var(--blue-3);
 }

@@ -1,0 +1,39 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+
+  &>:first-child:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+
+.avatar_label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orange);
+  border-radius: 50%;
+
+  &.large {
+    width: 54px;
+    height: 54px; 
+  }
+
+  &.mini {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.small {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.avatar_titles {
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
