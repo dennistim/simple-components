@@ -30,6 +30,10 @@ input:not([type="checkbox"]):not([type="radio"]) {
   &::placeholder {
     color: var(--gray);
   }
+
+  &:read-only {
+    color: var(--gray);
+  }
 }
 
 .input_field {

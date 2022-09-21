@@ -17,7 +17,9 @@ const InputField = ({
   value,
   error,
   button,
+  readOnly = false,
   onChange,
+  onClick,
 }: InputFieldProp) => {
   const [currentValue, setCurrentValue] = useState(value);
   const [focus, setFocus] = useState<boolean>(false);
@@ -44,17 +46,19 @@ const InputField = ({
         placeholder={placeholder}
         className={classnames(styles.input_field_text, inputFieldSizeClass[size], className, { [styles.focused]: focus, [styles.labeled]: label, [styles.error]: !!error })}
         value={currentValue || ""}
+        readOnly={readOnly}
         onFocus={() => setFocus(true)}
         onBlur={() => !currentValue && setFocus(false)}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setCurrentValue(e.target.value);
           onChange && onChange(e, e.target.value);
         }}
+        onClick={onClick}
       />
       <label htmlFor={inputName} className={classnames(styles.input_field_label, className, { [styles.focused]: focus, [styles.error]: !!error })}>{label}</label>
       {!!error && <Text color={Colors.red} size={12} className={classnames(styles.input_field_error, className)} >{error}</Text>}
       {button &&
-      <div className={classnames(styles.input_field_button, inputFieldSizeClass[size], className)}>
+      <div className={classnames(styles.input_field_button, inputFieldSizeClass[size], className)} >
         {button}
       </div>}
     </div>

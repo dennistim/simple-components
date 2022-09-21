@@ -23,6 +23,8 @@ export type InputFieldProp = {
   label?: string;
   value?: string;
   error?: string;
+  readOnly?: boolean;
   button?: React.ReactNode;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>,  value?: string) => void;
+  onClick?: (e: React.MouseEvent) => void;
 };
